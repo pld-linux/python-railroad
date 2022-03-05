@@ -1,0 +1,67 @@
+--- railroad-0.5.0/setup.py.orig	2016-08-19 16:45:11.000000000 +0200
++++ railroad-0.5.0/setup.py	2022-03-05 14:22:07.481864648 +0100
+@@ -42,7 +42,7 @@ setup(
+     install_requires=[
+         'six>=1.7.3',
+         'toolz>=0.7.4',
+-        'funcsigs>=1.0.2',
++        'funcsigs>=1.0.2;python_version<"3.6"',
+         'boltons>=16.5.0',
+     ],
+     license='MIT',
+--- railroad-0.5.0/test/test_railroad.py.orig	2015-08-27 12:59:27.000000000 +0200
++++ railroad-0.5.0/test/test_railroad.py	2022-03-05 14:23:56.067943054 +0100
+@@ -3,7 +3,10 @@ Tests for `railroad` module.
+ """
+ import pytest
+ 
+-from mock import Mock, call
++try:
++    from mock import Mock, call
++except ImportError:
++    from unittest.mock import Mock, call
+ 
+ from railroad import (
+     prepare,
+--- railroad-0.5.0/test/test_actions.py.orig	2016-07-12 18:25:15.000000000 +0200
++++ railroad-0.5.0/test/test_actions.py	2022-03-05 14:24:11.321193753 +0100
+@@ -2,7 +2,10 @@
+ 
+ from random import randint
+ 
+-from mock import Mock, call
++try:
++    from mock import Mock, call
++except ImportError:
++    from unittest.mock import Mock, call
+ from toolz import cons
+ 
+ from railroad import actions, lift, result
+--- railroad-0.5.0/test/test_guard.py.orig	2016-08-19 16:11:04.000000000 +0200
++++ railroad-0.5.0/test/test_guard.py	2022-03-05 14:24:27.607772188 +0100
+@@ -2,7 +2,10 @@
+ 
+ import pytest
+ 
+-from mock import Mock, call
++try:
++    from mock import Mock, call
++except ImportError:
++    from unittest.mock import Mock, call
+ 
+ from railroad import guard, GuardError
+ 
+--- railroad-0.5.0/test/test_rescue.py.orig	2016-07-05 19:43:04.000000000 +0200
++++ railroad-0.5.0/test/test_rescue.py	2022-03-05 14:24:39.324375380 +0100
+@@ -2,7 +2,10 @@
+ 
+ import pytest
+ 
+-from mock import Mock, call
++try:
++    from mock import Mock, call
++except ImportError:
++    from unittest.mock import Mock, call
+ 
+ from railroad import rescue
+ 
