@@ -8,7 +8,7 @@ Summary:	Functional library for data processing
 Summary(pl.UTF-8):	Biblioteka funkcyjna do przetwarzania danych
 Name:		python-railroad
 Version:	0.5.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/railroad/
