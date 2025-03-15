@@ -64,7 +64,7 @@ Biblioteka funkcyjna do przetwarzania danych.
 
 %prep
 %setup -q -n railroad-%{version}
-%patch0 -p1
+%patch -P 0 -p1
 
 %build
 %if %{with python2}
